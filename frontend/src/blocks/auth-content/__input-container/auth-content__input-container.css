@@ -1,0 +1,8 @@
+.auth-content__input-container {
+    display: flex;
+    flex-direction: column;
+    border-style: none;
+    margin: 0;
+    padding: 0;
+    position: relative;
+  }

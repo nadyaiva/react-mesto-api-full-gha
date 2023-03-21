@@ -1,0 +1,10 @@
+.header__button {
+    outline: none;
+    background-color: transparent;
+    cursor: pointer;
+    border-style: none;
+    transition: opacity 0.2s ease-in;
+    background-repeat: no-repeat;
+    background-position: center center;
+    width: 24px;
+  }

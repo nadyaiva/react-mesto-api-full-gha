@@ -1,0 +1,7 @@
+.profile__button {
+  display: flex;
+  padding: 0;
+  align-items: center;
+  background-color: transparent;
+  box-sizing: border-box;
+}

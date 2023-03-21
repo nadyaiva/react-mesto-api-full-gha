@@ -1,0 +1,48 @@
+.infotip-reg {
+  display: flex;
+  flex-direction: column;
+  width: 430px;
+  height: 330px;
+  background: #ffffff;
+  box-shadow: 0px 0px 25px rgba(0, 0, 0, 0.15);
+  border-radius: 10px;
+  align-items: center;
+  position: relative;
+}
+
+.infotip-reg__text {
+  font-weight: 900;
+  font-size: 24px;
+  line-height: 29px;
+  text-align: center;
+
+  color: #000000;
+  max-width: 358px;
+  margin: 0;
+}
+
+.infotip-reg__icon {
+  width: 120px;
+  height: 120px;
+  padding: 60px 0 32px;
+}
+
+.popup__close-button_place_infotip-reg {
+  color: #ffffff;
+}
+
+@media screen and (max-width: 900px) {
+  .infotip-reg {
+    width: 280px;
+    height: 308px;
+  }
+  .infotip-reg__text {
+    font-weight: 900;
+    font-size: 20px;
+    line-height: 24px;
+    max-width: 244px;
+  }
+  .infotip-reg__icon {
+    padding: 50px 0 40px;
+  }
+}

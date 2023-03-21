@@ -1,0 +1,22 @@
+.auth-content__input {
+  width: 100%;
+  color: #fff;
+  box-sizing: border-box;
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
+  background-color: #000;
+  border-style: none;
+  border-bottom: 1px solid #cccccc;
+  height: 27px;
+}
+
+@media screen and (max-width: 900px) {
+  .auth-content__input {
+    height: 27px;
+    font-size: 14px;
+    line-height: 17px;
+  }
+}

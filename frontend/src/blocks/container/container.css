@@ -1,0 +1,12 @@
+.container {
+  margin-right: auto;
+  margin-left: auto;
+  max-width: 880px;
+}
+
+@media screen and (max-width: 900px) {
+  .container {
+    max-width: calc(100vw - 38px);
+  }
+}
+

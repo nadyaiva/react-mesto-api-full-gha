@@ -1,0 +1,15 @@
+.elements__element {
+  width: 100%;
+  height: 100%;
+  background-color: #ffffff;
+  border-radius: 10px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  transition: scale 0.4s;
+  cursor: pointer;
+}
+
+.elements__element:hover {
+  transform: scale(1.01);
+}

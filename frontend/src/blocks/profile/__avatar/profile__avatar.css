@@ -1,0 +1,17 @@
+.profile__avatar {
+  border-radius: inherit;
+    height: 100%;
+    margin: 0;
+    object-fit: cover;
+    object-position: center center;
+    padding: 0;
+    transition: opacity .1s ease-in-out;
+    width: 100%;
+}
+
+.profile__avatar:hover {
+  cursor: pointer;
+  opacity: .2;
+}
+
+

@@ -1,0 +1,47 @@
+.elements__button_like {
+  background-color: transparent;
+  height: 24px;
+  width: 24px;
+  transition: opacity 0.2s ease-in;
+  background-image: url(../../../../images/button-like.svg);
+  background-size: 19px;
+  background-position: center center;
+  background-repeat: no-repeat;
+  border-style: none;
+  padding: 0;
+  padding-bottom: 3px;
+  cursor: pointer;
+}
+
+.elements__button_like_active {
+  height: 24px;
+  width: 24px;
+  opacity: 1;
+  background-image: url(../../../../images/like_active.svg);
+  background-color: transparent;
+  background-size: 19px;
+  background-position: center center;
+  background-repeat: no-repeat;
+  border-style: none;
+  padding: 0;
+  padding-bottom: 3px;
+  cursor: pointer;
+}
+
+.elements__button_like:hover {
+  opacity: 0.6;
+}
+.elements__like-info {
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  font-family: 'Inter';
+font-style: normal;
+font-weight: 400;
+font-size: 13px;
+line-height: 16px;
+text-align: center;
+
+color: #000000;
+}

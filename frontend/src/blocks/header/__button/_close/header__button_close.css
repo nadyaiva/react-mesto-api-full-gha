@@ -1,0 +1,5 @@
+.header__button_close {
+    height: 24px;
+    background-image: url(../../../../images/popup__icon-close.svg);
+    margin-right: 30px;
+  }
