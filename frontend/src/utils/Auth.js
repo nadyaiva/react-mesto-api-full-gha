@@ -1,4 +1,4 @@
-const BASE_URL = "https://auth.nomoreparties.co";
+const BASE_URL = "http://localhost:3000";
 
 function checkResponse(res) {
   if (res.ok) {
@@ -11,8 +11,8 @@ export const register = (inputValueObj) => {
   return fetch(BASE_URL + "/signup", {
     method: "POST",
     headers: {
-      Accept: "application/json",
-      "Content-Type": "application/json",
+      "Accept": "application/json",
+      'Content-Type': 'application/json'
     },
     body: JSON.stringify(inputValueObj),
   }).then(checkResponse);
@@ -22,13 +22,21 @@ export const login = (inputValueObj) => {
   return fetch(BASE_URL + "/signin", {
     method: "POST",
     headers: {
+      "Accept":  "application/json",
       "Content-Type": "application/json",
     },
     body: JSON.stringify(inputValueObj),
-  }).then(checkResponse);
+  }).then(checkResponse)
+  .then((data) => {
+    localStorage.setItem('token', data.token)
+    return data;
+  });
 };
 
-export const checkToken = (token) => {
+export const checkToken = () => {
+  const token = localStorage.getItem('token');
+  console.log(token);
+  console.log('Kolya chudak')
   return fetch(BASE_URL + "/users/me", {
     method: "GET",
     headers: {

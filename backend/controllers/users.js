@@ -58,11 +58,12 @@ const login = (req, res, next) => {
         'secret_key',
         { expiresIn: '7d' },
       );
-      res.cookie('jwtToken', token, {
-        maxAge: 604800,
-        httpOnly: true,
-      });
-      res.send({ message: 'Вход выполнен успешно!' });
+      // res.cookie('jwtToken', token, {
+      //   maxAge: 604800,
+      //   httpOnly: true,
+      // });
+      // res.send({ message: 'Вход выполнен успешно!' });
+      res.status(200).send({ token });
     })
     .catch(next);
 };

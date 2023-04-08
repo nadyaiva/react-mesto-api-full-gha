@@ -3,21 +3,20 @@ const UnautorizedError = require('../utils/UnautorizedError');
 
 // eslint-disable-next-line consistent-return
 module.exports = (req, res, next) => {
-  const { jwtToken } = req.cookies;
-
-  if (!jwtToken) {
-    next(new UnautorizedError('Необходима авторизация'));
-    return;
+  const { authorization } = req.headers;
+  // const { jwtToken } = req.cookies;
+  console.log('Kolya');
+  console.log(authorization);
+  if (!authorization) {
+    return next(new UnautorizedError('Необходима авторизация'));
   }
-
-  const token = jwtToken;
+  const token = authorization.split('Bearer ')[1];
   let payload;
 
   try {
     payload = jwt.verify(token, 'secret_key');
   } catch (err) {
-    next(new UnautorizedError('Необходима авторизация'));
-    return;
+    return next(new UnautorizedError('Необходима авторизация'));
   }
 
   req.user = payload;
