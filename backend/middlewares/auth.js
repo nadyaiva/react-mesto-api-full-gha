@@ -5,8 +5,6 @@ const UnautorizedError = require('../utils/UnautorizedError');
 module.exports = (req, res, next) => {
   const { authorization } = req.headers;
   // const { jwtToken } = req.cookies;
-  console.log('Kolya');
-  console.log(authorization);
   if (!authorization) {
     return next(new UnautorizedError('Необходима авторизация'));
   }

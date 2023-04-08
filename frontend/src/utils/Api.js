@@ -24,6 +24,7 @@ class ApiClass {
     return fetch(`${this._baseurl}/cards`, {
       headers: {
         authorization: `Bearer ${token}`,
+        "Content-Type": "application/json",
       },
     }).then(this._handleResponse);
   }
@@ -44,15 +45,20 @@ class ApiClass {
       method: "POST",
       headers: {
         authorization: `Bearer ${token}`,
+        "Content-Type": "application/json",
       },
       body: JSON.stringify(cardInputData),
     }).then(this._handleResponse);
   }
 
   changeCardLikeStatus(cardId, isLiked) {
-    return fetch(`${this._baseurl}${this._cohort}/cards/${cardId}/likes`, {
+    const token = localStorage.getItem('jwt');
+    return fetch(`${this._baseurl}/cards/${cardId}/likes`, {
       method: isLiked ? "PUT" : "DELETE",
-      headers: this._headers,
+      headers: {
+        authorization: `Bearer ${token}`,
+        "Content-Type": "application/json",
+      },
     }).then(this._handleResponse);
   }
 
@@ -80,7 +86,6 @@ class ApiClass {
 const Api = new ApiClass({
   baseurl: "http://localhost:3000",
   headers: {
-    authorization: "d94e7cf1-3761-45b6-9798-0ad1da8f2858",
     "Content-Type": "application/json",
   },
 });

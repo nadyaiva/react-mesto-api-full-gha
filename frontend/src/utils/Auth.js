@@ -28,15 +28,13 @@ export const login = (inputValueObj) => {
     body: JSON.stringify(inputValueObj),
   }).then(checkResponse)
   .then((data) => {
-    localStorage.setItem('token', data.token)
+    localStorage.setItem('jwt', data.token)
     return data;
   });
 };
 
 export const checkToken = () => {
-  const token = localStorage.getItem('token');
-  console.log(token);
-  console.log('Kolya chudak')
+  const token = localStorage.getItem('jwt');
   return fetch(BASE_URL + "/users/me", {
     method: "GET",
     headers: {
