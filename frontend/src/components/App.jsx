@@ -86,7 +86,7 @@ function App() {
   function handleCardLike(card) {
     // Снова проверяем, есть ли уже лайк на этой карточке
     //const isLiked = card.likes.some((id) => id === currentUser._id);
-    const isLiked = card.likes.some(i => i === currentUser.data._id);
+    const isLiked = card.likes.some(i => i === currentUser._id);
     // Отправляем запрос в API и получаем обновлённые данные карточки
     Api.changeCardLikeStatus(card._id, !isLiked)
       .then((newCard) => {
@@ -159,8 +159,8 @@ function App() {
     setIsLoading(true)
     auth
       .register({ password, email })
-      .then((data) => {
-        if (data.data._id) {
+      .then((user) => {
+        if (user._id) {
           setIsSuccessTip(true);
         }
       })
@@ -180,7 +180,7 @@ function App() {
         .checkToken(token)
         .then((res) => {
           if (res) {
-            setEmail(res.data.email);
+            setEmail(res.email);
             setIsLoggedIn(true);
             history.push("/");
           }

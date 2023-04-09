@@ -47,7 +47,6 @@ const likeCard = (req, res, next) => {
     { $addToSet: { likes: req.user._id } },
     { new: true },
   )
-    //.populate(['likes', 'owner'])
     .orFail(() => {
       throw new NotFoundError('Карточка не существует');
     })
@@ -68,7 +67,6 @@ const dislikeCard = (req, res, next) => {
     { $pull: { likes: req.user._id } },
     { new: true },
   )
-    //.populate(['likes', 'owner'])
     .orFail(() => {
       throw new NotFoundError('Карточка не существует');
     })

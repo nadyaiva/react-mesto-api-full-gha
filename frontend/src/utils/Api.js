@@ -34,6 +34,7 @@ class ApiClass {
       method: "PATCH",
       headers: {
         authorization: `Bearer ${token}`,
+        "Content-Type": "application/json",
       },
       body: JSON.stringify(inputProfileObj),
     }).then(this._handleResponse);

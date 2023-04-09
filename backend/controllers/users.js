@@ -11,6 +11,7 @@ const getUsers = (req, res, next) => {
 };
 
 const getUserById = (req, res, next) => {
+  console.log(`getUserById req.params.userId: ${req.params.userId}`);
   User.findById(req.params.userId)
     .orFail(() => {
       throw new NotFoundError('Передан несуществующий id пользователя');
@@ -30,15 +31,7 @@ const createUser = (req, res, next) => {
   bcrypt.hash(password, 10)
     .then((hash) => User.create({
       name, about, avatar, email, password: hash,
-    })).then((user) => res.status(201).send({
-      user: {
-        name: user.name,
-        about: user.about,
-        avatar: user.avatar,
-        email: user.email,
-        _id: user._id,
-      },
-    }))
+    })).then((user) => res.status(201).send(user))
     .catch((err) => {
       if (err.code === 11000) {
         next(new ConflictError('Пользователь с таким email уже существует'));
@@ -70,6 +63,7 @@ const login = (req, res, next) => {
 
 const updateUser = (req, res, next) => {
   const { name, about } = req.body;
+  console.log(`updateUser -> req.user._id${req.user._id}`);
   User.findByIdAndUpdate(req.user._id, { name, about }, {
     new: true,
     runValidators: true,
@@ -84,6 +78,7 @@ const updateUser = (req, res, next) => {
 
 const updateAvatar = (req, res, next) => {
   const { avatar } = req.body;
+  console.log(`updateAvatar -> req.user._id${req.user._id}`);
   User.findByIdAndUpdate(req.user._id, { avatar }, {
     new: true,
     runValidators: true,
@@ -97,11 +92,12 @@ const updateAvatar = (req, res, next) => {
 };
 
 const getUserMe = (req, res, next) => {
+  console.log(`getUserMe ${req.user._id}`);
   User.findById(req.user._id)
     .orFail(() => {
       throw new NotFoundError('Пользователь не найден');
     })
-    .then((user) => res.send({ data: user }))
+    .then((user) => res.send(user))
     .catch((err) => {
       if (err.name === 'CastError') {
         next(new BadRequestError(`Некорректно переданы данные пользователя: ${err.message}`));
