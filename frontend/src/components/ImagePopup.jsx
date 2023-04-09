@@ -3,7 +3,7 @@ import Popup from "./Popup";
 
 function ImagePopup({card, onClose }) {
   const cardLink = card ? card.link : "";
-  const cardName = card ? card.name : "";
+  const name = card ? card.name : "";
 
   return (
     <Popup isOpen={card} name={'image'} onClose={onClose}>
@@ -11,10 +11,10 @@ function ImagePopup({card, onClose }) {
         <img
           className="popup-fullscreen__image"
           src={cardLink}
-          alt={cardName}
+          alt={name}
         />
         <figcaption className="popup-fullscreen__caption">
-          {cardName}
+          {name}
         </figcaption>
         </figure>
     </Popup>

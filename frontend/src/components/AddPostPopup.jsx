@@ -3,25 +3,25 @@ import React from "react";
 import { useState } from "react";
 
 function AddPostPopup({ isLoading, onAddPlace, isOpen, onClose }) {
-  const [cardname, setCardname] = useState("");
+  const [name, setName] = useState("");
   const [link, setLink] = useState("");
 
   function handleSubmit(e) {
     e.preventDefault();
     onAddPlace({
-      name: cardname,
+      name: name,
       link: link,
     });
   }
-  function handleCardnameChange(e) {
-    setCardname(e.target.value);
+  function handleNameChange(e) {
+    setName(e.target.value);
   }
   function handleLinkChange(e) {
     setLink(e.target.value);
   }
 
   React.useEffect(() => {
-    setCardname('');
+    setName('');
     setLink('');
   }, []);
 
@@ -37,15 +37,15 @@ function AddPostPopup({ isLoading, onAddPlace, isOpen, onClose }) {
       <label className="popup__label">
         <input
           className="popup__input popup__input_type_title"
-          value={cardname}
+          value={name}
           placeholder="Название"
           type="text"
-          name="cardname"
+          name="name"
           id="title-input"
           minLength="2"
           maxLength="30"
           required
-          onChange={handleCardnameChange}
+          onChange={handleNameChange}
         />
         <span className="popup__input-error title-input-error"></span>
       </label>

@@ -52,6 +52,7 @@ class ApiClass {
   }
 
   changeCardLikeStatus(cardId, isLiked) {
+    console.log("changeCardLikeStatus: cardId " + cardId + " isLiked " + isLiked);
     const token = localStorage.getItem('jwt');
     return fetch(`${this._baseurl}/cards/${cardId}/likes`, {
       method: isLiked ? "PUT" : "DELETE",
