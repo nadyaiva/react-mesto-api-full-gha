@@ -18,6 +18,7 @@ const { PORT = 3000, DB_ADDRESS } = process.env;
 
 const app = express();
 app.use('*', cors(options));
+app.options('*', cors());
 mongoose.connect(DB_ADDRESS);
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
