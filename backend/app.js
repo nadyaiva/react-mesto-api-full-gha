@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
@@ -13,11 +14,11 @@ const handleError = require('./middlewares/handleError');
 const { requestLogger, errorLogger } = require('./middlewares/logger');
 const { options } = require('./middlewares/handleOptions');
 
-const { PORT = 3000 } = process.env;
+const { PORT = 3000, DB_ADDRESS } = process.env;
 
 const app = express();
 app.use('*', cors(options));
-mongoose.connect('mongodb://localhost:27017/mestodb');
+mongoose.connect(DB_ADDRESS);
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser());

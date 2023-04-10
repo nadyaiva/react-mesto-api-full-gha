@@ -5,13 +5,14 @@ const BadRequestError = require('../utils/BadRequestError');
 const ConflictError = require('../utils/ConflictError');
 const NotFoundError = require('../utils/NotFoundError');
 
+const { NODE_ENV, JWT_SECRET } = process.env;
+
 const getUsers = (req, res, next) => {
   User.find({}).then((users) => res.send(users))
     .catch(next);
 };
 
 const getUserById = (req, res, next) => {
-  console.log(`getUserById req.params.userId: ${req.params.userId}`);
   User.findById(req.params.userId)
     .orFail(() => {
       throw new NotFoundError('Передан несуществующий id пользователя');
@@ -48,7 +49,7 @@ const login = (req, res, next) => {
     .then((user) => {
       const token = jwt.sign(
         { _id: user._id },
-        'secret_key',
+        NODE_ENV === 'production' ? JWT_SECRET : 'dev-secret',
         { expiresIn: '7d' },
       );
       // res.cookie('jwtToken', token, {
@@ -63,7 +64,6 @@ const login = (req, res, next) => {
 
 const updateUser = (req, res, next) => {
   const { name, about } = req.body;
-  console.log(`updateUser -> req.user._id${req.user._id}`);
   User.findByIdAndUpdate(req.user._id, { name, about }, {
     new: true,
     runValidators: true,
@@ -78,7 +78,6 @@ const updateUser = (req, res, next) => {
 
 const updateAvatar = (req, res, next) => {
   const { avatar } = req.body;
-  console.log(`updateAvatar -> req.user._id${req.user._id}`);
   User.findByIdAndUpdate(req.user._id, { avatar }, {
     new: true,
     runValidators: true,
