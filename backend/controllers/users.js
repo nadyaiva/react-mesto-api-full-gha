@@ -32,7 +32,10 @@ const createUser = (req, res, next) => {
   bcrypt.hash(password, 10)
     .then((hash) => User.create({
       name, about, avatar, email, password: hash,
-    })).then((user) => res.status(201).send(user))
+    })).then((user) => res.status(201).send({
+      _id: user._id,
+      email: user.email,
+    }))
     .catch((err) => {
       if (err.code === 11000) {
         next(new ConflictError('Пользователь с таким email уже существует'));
@@ -84,14 +87,11 @@ const updateAvatar = (req, res, next) => {
   })
     .then((user) => res.send(user))
     .catch((err) => {
-      if (err.name === 'ValidationError') {
-        next(new BadRequestError(`Введены некорректные данные: ${err.message}`));
-      } else next(err);
+      next(err);
     });
 };
 
 const getUserMe = (req, res, next) => {
-  console.log(`getUserMe ${req.user._id}`);
   User.findById(req.user._id)
     .orFail(() => {
       throw new NotFoundError('Пользователь не найден');
