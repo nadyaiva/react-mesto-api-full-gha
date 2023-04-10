@@ -12,6 +12,8 @@ function AddPostPopup({ isLoading, onAddPlace, isOpen, onClose }) {
       name: name,
       link: link,
     });
+    setName('');
+    setLink('');
   }
   function handleNameChange(e) {
     setName(e.target.value);
@@ -21,10 +23,9 @@ function AddPostPopup({ isLoading, onAddPlace, isOpen, onClose }) {
   }
 
   React.useEffect(() => {
-    console.log('React.useEffect');
     setName('');
     setLink('');
-  }, []);
+  }, [onClose]);
 
 
   return (
