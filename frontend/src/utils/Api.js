@@ -86,7 +86,7 @@ class ApiClass {
 }
 
 const Api = new ApiClass({
-  baseurl: "http://localhost:3000",
+  baseurl: "https://api.plaats.nomoredomains.monster/",
   headers: {
     "Content-Type": "application/json",
   },
