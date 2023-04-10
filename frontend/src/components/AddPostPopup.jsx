@@ -21,9 +21,11 @@ function AddPostPopup({ isLoading, onAddPlace, isOpen, onClose }) {
   }
 
   React.useEffect(() => {
+    console.log('React.useEffect');
     setName('');
     setLink('');
   }, []);
+
 
   return (
     <PopupWithForm

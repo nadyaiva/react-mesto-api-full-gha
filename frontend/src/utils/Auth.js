@@ -1,4 +1,5 @@
 const BASE_URL = "https://api.plaats.nomoredomains.monster";
+//const BASE_URL = "http://localhost:3000";
 
 function checkResponse(res) {
   if (res.ok) {

@@ -74,11 +74,13 @@ class ApiClass {
     }).then(this._handleResponse);
   }
   updateAvatar(avatarObj) {
+    console.log(`avatarObj ${avatarObj}`)
     const token = localStorage.getItem('jwt');
     return fetch(`${this._baseurl}/users/me/avatar`, {
       method: "PATCH",
       headers: {
         authorization: `Bearer ${token}`,
+        "Content-Type": "application/json",
       },
       body: JSON.stringify(avatarObj),
     }).then(this._handleResponse);
@@ -87,6 +89,7 @@ class ApiClass {
 
 const Api = new ApiClass({
   baseurl: "https://api.plaats.nomoredomains.monster",
+  //baseurl: "http://localhost:3000",
   headers: {
     "Content-Type": "application/json",
   },
