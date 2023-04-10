@@ -2,6 +2,8 @@ module.exports.options = {
   origin: [
     'https://plaatsnomoredomains.monster',
     'http://plaats.nomoredomains.monster',
+    'https://api.plaatsnomoredomains.monster',
+    'http://api.plaats.nomoredomains.monster',
     'http://localhost:3001',
     'http://localhost:3000',
   ],
