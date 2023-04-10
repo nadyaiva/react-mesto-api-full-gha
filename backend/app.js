@@ -12,12 +12,11 @@ const { login, createUser } = require('./controllers/users');
 const NotFoundError = require('./utils/NotFoundError');
 const handleError = require('./middlewares/handleError');
 const { requestLogger, errorLogger } = require('./middlewares/logger');
-const { options } = require('./middlewares/handleOptions');
 
 const { PORT = 3000, DB_ADDRESS } = process.env;
 
 const app = express();
-app.use('*', cors(options));
+app.use('*', cors());
 app.options('*', cors());
 mongoose.connect(DB_ADDRESS);
 app.use(bodyParser.json());
