@@ -1,4 +1,4 @@
-const BASE_URL = "https://api.plaats.nomoredomains.monster/";
+const BASE_URL = "https://api.plaats.nomoredomains.monster";
 
 function checkResponse(res) {
   if (res.ok) {

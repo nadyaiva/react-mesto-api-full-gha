@@ -86,7 +86,7 @@ class ApiClass {
 }
 
 const Api = new ApiClass({
-  baseurl: "https://api.plaats.nomoredomains.monster/",
+  baseurl: "https://api.plaats.nomoredomains.monster",
   headers: {
     "Content-Type": "application/json",
   },
