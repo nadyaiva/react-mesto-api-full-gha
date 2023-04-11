@@ -41,6 +41,7 @@ const deleteCard = (req, res, next) => {
 };
 
 const likeCard = (req, res, next) => {
+  console.log('Check if code updated');
   const { cardId } = req.params;
   Card.findByIdAndUpdate(
     cardId,
