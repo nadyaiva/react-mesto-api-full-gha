@@ -4,9 +4,9 @@
 
 This is a repository for the 'Mesto' project, which includes both frontend and backend components with the following functionality:
 
-User registration and authentication
-Card operations: create, like, and delete
-User operations: create, edit profile, and update avatar.
+- User registration and authentication
+- Card operations: create, like, and delete
+- User operations: create, edit profile, and update avatar.
 
 Repository: https://github.com/nadyaiva/react-mesto-api-full-gha
 
