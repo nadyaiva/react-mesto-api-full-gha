@@ -18,7 +18,7 @@ const { PORT = 3000, DB_ADDRESS } = process.env;
 const app = express();
 app.use(cors());
 app.options('*', cors());
-mongoose.connect(DB_ADDRESS);
+mongoose.connect(DB_ADDRESS, { useNewUrlParser: true });
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser());
