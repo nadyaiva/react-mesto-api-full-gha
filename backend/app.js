@@ -16,7 +16,7 @@ const { requestLogger, errorLogger } = require('./middlewares/logger');
 const { PORT = 3000, DB_ADDRESS } = process.env;
 
 const app = express();
-app.use('*', cors());
+app.use(cors());
 app.options('*', cors());
 mongoose.connect(DB_ADDRESS);
 app.use(bodyParser.json());
