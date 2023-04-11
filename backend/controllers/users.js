@@ -98,9 +98,7 @@ const getUserMe = (req, res, next) => {
     })
     .then((user) => res.send(user))
     .catch((err) => {
-      if (err.name === 'CastError') {
-        next(new BadRequestError(`Некорректно переданы данные пользователя: ${err.message}`));
-      } else next(err);
+      next(err);
     });
 };
 

@@ -71,9 +71,7 @@ const dislikeCard = (req, res, next) => {
     })
     .then((card) => res.send(card))
     .catch((err) => {
-      if (err.name === 'ValidationError') {
-        next(new BadRequestError(`Введены некорректные данные: ${err.message}`));
-      } else if (err.name === 'CastError') {
+      if (err.name === 'CastError') {
         next(new BadRequestError('Некорректно передан id карточки'));
       } else next(err);
     });
