@@ -1,6 +1,5 @@
 import React from "react";
 import { CurrentUserContext } from "../contexts/CurrentUserContext";
-// import Api from "../utils/Api";
 
 function Card({ card, onCardClick, onCardLike, onCardDelete }) {
   function handlecardClick() {
